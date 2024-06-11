@@ -14,9 +14,7 @@ async function signup(req, res) {
 async function signin(req, res) {
     const body = req.body;
 
-
     try {
-        const token = await authService.signin(body)
         const resService = await authService.signin(body)
         return res.status(200).send(resService)
     } catch (error) {

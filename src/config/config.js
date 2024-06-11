@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let collection;
+let db;
 
 export async function connect() {
     const url = process.env.ATLAS_URL;
@@ -17,19 +18,22 @@ export async function connect() {
         console.log(error)
     }
     
-    let db = conn.db('wallet');
-    collection = db.collection('users');
+    db = conn.db('wallet');
     // Criar índice único para o campo 'email'
+
+    collection = db.collection('users');
     await collection.createIndex({ email: 1 }, { unique: true });
     return db;
 
 }
 
-export async function find(query) {
+export async function find(query, colection) {
+    collection = db.collection(colection);
     return collection.find(query).toArray();
 }
 
-export async function insertOne(data) {
+export async function insertOne(data, colection) {
+    collection = db.collection(colection);
     return collection.insertOne(data);
 }
 

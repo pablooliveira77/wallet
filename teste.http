@@ -17,3 +17,13 @@ Content-Type: application/json
     "email": "pablo@gmail.com",
     "password": "123456"
 }
+
+### Rota de Transação
+POST http://localhost:3000/transaction
+Content-Type: application/json
+
+{
+    "value": 100,
+    "description": "Conta de luz",
+    "type": "expense"
+}

@@ -5,12 +5,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 async function create(data){    
-    return await insertOne(data)
-
+    return await insertOne(data, 'users')
 }
 
 async function findByEmail(email){
-    const user = await find({email})
+    const user = await find({email}, 'users')
     return user[0] || false
 }
 
