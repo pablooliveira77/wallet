@@ -5,4 +5,6 @@ const authRouther = Router();
 
 authRouther.post('/signup', authController.signup);
 
+authRouther.post('/signin', authController.signin);
+
 export default authRouther;
