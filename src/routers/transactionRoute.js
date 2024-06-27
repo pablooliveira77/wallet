@@ -1,8 +1,9 @@
-import { Router } from 'express';
-import transactionController from '../controllers/transactionController.js';
+import { Router } from "express";
+import transactionController from "../controllers/transactionController.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
-const transactionRouther = Router();
+const transactionRouter = Router();
 
-transactionRouther.post('/transaction', transactionController.create);
+transactionRouter.post("/transaction", authMiddleware, transactionController.create);
 
-export default transactionRouther;
+export default transactionRouter;

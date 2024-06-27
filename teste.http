@@ -18,12 +18,26 @@ Content-Type: application/json
     "password": "123456"
 }
 
-### Rota de Transação
-POST http://localhost:3000/transaction
+
+### Rota signip
+POST http://localhost:3000/signin
 Content-Type: application/json
 
 {
-    "value": 100,
-    "description": "Conta de luz",
+    "email": "pablolima@gmail.com",
+    "password": "123456"
+}
+
+
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU0OTgyYzFiYTgzNjkyZDE3ZWFhZSIsImlhdCI6MTcxOTQ1Mzc4NCwiZXhwIjoxNzE5NDUzODcwfQ.zg0N7XeFwnSwJ_PYZxrF6WsDcMJadumbxa986q66Qn4
+### Rota de Transação
+POST http://localhost:3000/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "value": 50,
+    "description": "Gasolina",
     "type": "expense"
 }

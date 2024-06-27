@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -30,6 +30,12 @@ export async function connect() {
 export async function find(query, colection) {
     collection = db.collection(colection);
     return collection.find(query).toArray();
+}
+
+export async function findById(id, colection) {
+    collection = db.collection(colection);
+    return collection.findOne({ _id: new ObjectId(id) });
+
 }
 
 export async function insertOne(data, colection) {
