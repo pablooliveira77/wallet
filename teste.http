@@ -30,14 +30,19 @@ Content-Type: application/json
 
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU0OTgyYzFiYTgzNjkyZDE3ZWFhZSIsImlhdCI6MTcxOTQ1Mzc4NCwiZXhwIjoxNzE5NDUzODcwfQ.zg0N7XeFwnSwJ_PYZxrF6WsDcMJadumbxa986q66Qn4
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU0OTgyYzFiYTgzNjkyZDE3ZWFhZSIsImlhdCI6MTcyMDA1NDI3NSwiZXhwIjoxNzIwMDU0MzYxfQ.5L_RImHY5iZregCQ04vltg-FubVsju9mQRhqhIpo7rg
 ### Rota de Transação
 POST http://localhost:3000/transaction
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "value": 50,
-    "description": "Gasolina",
+    "value": 150,
+    "description": "compras do mes",
     "type": "expense"
 }
+
+### Rota de Transação
+GET http://localhost:3000/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}

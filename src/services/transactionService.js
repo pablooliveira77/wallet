@@ -6,4 +6,10 @@ async function create(body, id) {
     return await transactionRepository.create({ ...body, userId: id });
 }
 
-export default { create }
+async function getAll(id) {
+    if (!id) throw new Error('Id do usuário não informado');
+
+    return await transactionRepository.getAll({ userId: id });
+}
+
+export default { create, getAll }
