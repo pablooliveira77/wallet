@@ -22,7 +22,19 @@ async function signin(req, res) {
     }
 }
 
+async function userLogged(req, res) {
+    const {_id: id} = res.locals.user;
+
+    try {
+        const user = await authService.userLogged(id)
+        return res.send(user)
+    } catch (error) {
+        return res.status(404).send(error.message)
+    }
+}
+
 export default {
     signup,
-    signin
+    signin,
+    userLogged
 }

@@ -1,10 +1,11 @@
-// import userSchema from '../schemas/User.js'
+import userSchema from '../schemas/User.js'
 import {find, findById, insertOne} from '../config/config.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 dotenv.config()
 
 async function create(data){    
+    await userSchema.validateAsync(data)
     return await insertOne(data, 'users')
 }
 

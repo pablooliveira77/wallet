@@ -1,11 +1,10 @@
-import Joi from 'joi';
+import Joi from "joi";
 
-// Definir o schema de validação usando Joi
 const userSchema = Joi.object({
   nome: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
-  create_date: Joi.date().required(),
+  created_at: Joi.date(),
 });
 
 export default userSchema;

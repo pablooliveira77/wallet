@@ -24,13 +24,13 @@ POST http://localhost:3000/signin
 Content-Type: application/json
 
 {
-    "email": "pablolima@gmail.com",
+    "email": "pablo@gmail.com",
     "password": "123456"
 }
 
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU0OTgyYzFiYTgzNjkyZDE3ZWFhZSIsImlhdCI6MTcyMDA1NDI3NSwiZXhwIjoxNzIwMDU0MzYxfQ.5L_RImHY5iZregCQ04vltg-FubVsju9mQRhqhIpo7rg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdhYTlkNGUzMTVlYWViMjJkOWNlMiIsImlhdCI6MTcyMDA1NDk0NSwiZXhwIjoxNzIwMDU1MDMxfQ.7y7AzLvO9TF7-wYEPUw-Hjyj6JcKEqjWr3omLCgY3p
 ### Rota de Transação
 POST http://localhost:3000/transaction
 Content-Type: application/json
@@ -44,5 +44,10 @@ Authorization: Bearer {{token}}
 
 ### Rota de Transação
 GET http://localhost:3000/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Rota de perfil
+GET http://localhost:3000/me
 Content-Type: application/json
 Authorization: Bearer {{token}}

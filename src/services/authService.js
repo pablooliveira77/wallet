@@ -19,7 +19,15 @@ async function signin(body) {
     return authRepository.generateToken(user._id); 
 }
 
+async function userLogged(id) {
+    const user = await authRepository.findId(id);
+    if (!user) throw new Error('Usuário não encontrado');
+
+    return user;
+}
+
 export default {
     signup,
-    signin
+    signin,
+    userLogged
 }
