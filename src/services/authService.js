@@ -7,7 +7,9 @@ async function signup(body) {
     const userExists = await authRepository.findByEmail(body.email);
     if (userExists) throw new Error('Usuário já cadastrado');
 
-    return await authRepository.create({...body, password: hasPassword})
+    const idUser = await authRepository.create({...body, password: hasPassword})
+    const user = await authRepository.findId(idUser.insertedId);
+    return user
 }
 
 async function signin(body) {

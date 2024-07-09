@@ -8,13 +8,13 @@ Content-Type: application/json
     "password": "123456"
 }
 
-
-### Rota signip
-POST http://localhost:3000/signin
+### Teste validação signup
+POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "email": "pablo@gmail.com",
+    "nome": "Pabloa",
+    "email": "123@outloock.com",
     "password": "123456"
 }
 
@@ -28,9 +28,29 @@ Content-Type: application/json
     "password": "123456"
 }
 
+
+
+### Rota signip
+POST http://localhost:3000/signin
+Content-Type: application/json
+
+{
+    "email": "pablo@gmail.com",
+    "password": "123456"
+}
+
+
+### Rota Validação signip
+POST http://localhost:3000/signin
+Content-Type: application/json
+
+{
+    "email": "pablo@gmail.com",
+    "password": "123456"
+}
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdhYTlkNGUzMTVlYWViMjJkOWNlMiIsImlhdCI6MTcyMDA1NDk0NSwiZXhwIjoxNzIwMDU1MDMxfQ.7y7AzLvO9TF7-wYEPUw-Hjyj6JcKEqjWr3omLCgY3p
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdhYTlkNGUzMTVlYWViMjJkOWNlMiIsImlhdCI6MTcyMDQ4NzU0MCwiZXhwIjoxNzIwNDg3NjI2fQ.-H0sUhOrNxRjPNImpbCaTJ-vo2Ucyx9DtL4LAMsM03M
 ### Rota de Transação
 POST http://localhost:3000/transaction
 Content-Type: application/json
@@ -40,6 +60,17 @@ Authorization: Bearer {{token}}
     "value": 150,
     "description": "compras do mes",
     "type": "expense"
+}
+
+### Rota de validação de Transação
+POST http://localhost:3000/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "value": 150,
+    "description": "compras do mes",
+    "type": "input"
 }
 
 ### Rota de Transação

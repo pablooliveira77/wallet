@@ -1,13 +1,16 @@
-import { Router } from 'express';
-import authController from '../controllers/authController.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+import { Router } from "express";
+import authController from "../controllers/authController.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
+import { validateSchema } from "../middlewares/validationSchemaMiddlewares.js";
+import { createUser } from "../schemas/validation/createUser.js";
+import { authUser } from "../schemas/validation/authUser.js";
 
 const authRouther = Router();
 
-authRouther.post('/signup', authController.signup);
+authRouther.post("/signup", validateSchema(createUser), authController.signup);
 
-authRouther.post('/signin', authController.signin);
+authRouther.post("/signin", validateSchema(authUser), authController.signin);
 
-authRouther.get('/me', authMiddleware, authController.userLogged);
+authRouther.get("/me", authMiddleware, authController.userLogged);
 
 export default authRouther;
