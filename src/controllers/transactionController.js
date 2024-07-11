@@ -23,4 +23,27 @@ async function getAll(req, res) {
   }
 }
 
-export default { create, getAll };
+async function update(req, res) {
+  const { id } = req.params;
+  const { body } = req;
+
+  try {
+    const updatedTransaction = await transactionService.update(id, body);
+    return res.status(200).send(updatedTransaction);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+}
+
+async function remove(req, res) {
+  const { id } = req.params;
+
+  try {
+    const deletedTransaction = await transactionService.remove(id);
+    return res.status(200).send(deletedTransaction);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+}
+
+export default { create, getAll, update, remove };

@@ -10,8 +10,8 @@ connect();
 const app = express();
 app.use(express.json());
 
-app.use(authRoute)
-app.use(transactionRouther)
+app.use(authRoute);
+app.use(transactionRouther);
 
 const port = process.env.PORT;
 app.listen(port, () => {

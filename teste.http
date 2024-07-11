@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "nome": "Pablo",
-    "email": "pablo@gmail.com",
+    "email": "pabloaa@gmail.com",
     "password": "123456"
 }
 
@@ -35,7 +35,7 @@ POST http://localhost:3000/signin
 Content-Type: application/json
 
 {
-    "email": "pablo@gmail.com",
+    "email": "pablolima@gmail.com",
     "password": "123456"
 }
 
@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 
 ###
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdhYTlkNGUzMTVlYWViMjJkOWNlMiIsImlhdCI6MTcyMDQ4NzU0MCwiZXhwIjoxNzIwNDg3NjI2fQ.-H0sUhOrNxRjPNImpbCaTJ-vo2Ucyx9DtL4LAMsM03M
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjdhYTlkNGUzMTVlYWViMjJkOWNlMiIsImlhdCI6MTcyMDY2MTQxOCwiZXhwIjoxNzIwNjYyMjgyfQ.jeU4OMJ_7vB-PjrQHT2O0W1Vw5q9PSiq6Frh5VN9MWo
 ### Rota de Transação
 POST http://localhost:3000/transaction
 Content-Type: application/json
@@ -59,7 +59,7 @@ Authorization: Bearer {{token}}
 {
     "value": 150,
     "description": "compras do mes",
-    "type": "expense"
+    "type": "input"
 }
 
 ### Rota de validação de Transação
@@ -68,8 +68,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "value": 150,
-    "description": "compras do mes",
+    "value": 10000000,
+    "description": "Sera Excluido",
     "type": "input"
 }
 
@@ -82,3 +82,32 @@ Authorization: Bearer {{token}}
 GET http://localhost:3000/me
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+### Rota de atualização de transação
+PUT http://localhost:3000/transaction/6685edf5e7af8b777d80acf2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "value": 500,
+    "description": "compras do mes 4",
+    "type": "input"
+}
+
+### Testes de atualização de Transação
+PUT http://localhost:3000/transaction/667cc89e6e642a84848d0db3
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "value": 75,
+    "description": "Gasolina",
+    "type": "input"
+}
+
+### Rota de deletar transação
+DELETE http://localhost:3000/transaction/668f302d791252d2a38551ee
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#      

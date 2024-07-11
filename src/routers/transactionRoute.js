@@ -16,8 +16,8 @@ transactionRouter.post(
 
 transactionRouter.get("/transaction", transactionController.getAll);
 
-// Rota de editar
+transactionRouter.put("/transaction/:id", transactionController.update);
 
-// Rota de apagar
+transactionRouter.delete("/transaction/:id", transactionController.remove);
 
 export default transactionRouter;
