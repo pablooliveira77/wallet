@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 import authRepository from "../repositories/authRepository.js";
 
 export async function authMiddleware(req, res, next) {
